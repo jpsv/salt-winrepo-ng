@@ -1,10 +1,11 @@
+{% for version in ['3.2', '3.1.2'] %}
 {% if grains['cpuarch'] == 'AMD64' %}
     {% set INSTALLER = "SumatraPDF-3.1.2-64-install.exe" %}
 {% else %}
     {% set INSTALLER = "SumatraPDF-3.1.2-install.exe" %}
 {% endif %}
 sumatrapdf:
-  '3.1.2':
+  '{{ version }}':
     full_name: 'SumatraPDF'
     installer: 'https://www.sumatrapdfreader.org/dl/{{ INSTALLER }}'
     install_flags: '/s /opt'
